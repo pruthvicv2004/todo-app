@@ -1,0 +1,32 @@
+﻿import React, { useEffect, useState } from 'react';
+import TodoForm from './components/TodoForm';
+import TodoList from './components/TodoList';
+import { getTodos, createTodo, deleteTodo } from './api';
+import './styles.css';
+
+export default function App() {
+  const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    getTodos().then(setTodos).catch(() => setTodos([]));
+  }, []);
+
+  const handleAdd = async (text) => {
+    const todo = await createTodo(text);
+    setTodos(prev => [todo, ...prev]);
+  };
+
+  const handleDelete = async (id) => {
+    await deleteTodo(id);
+    setTodos(prev => prev.filter(t => t.id !== id));
+  };
+
+  return (
+    <div style={{ maxWidth: 700, margin: '40px auto', padding: 20 }}>
+      <h1>Simple Todo App (Frontend Only)</h1>
+      <TodoForm onAdd={handleAdd} />
+      <TodoList todos={todos} onDelete={handleDelete} />
+    </div>
+  );
+}
+

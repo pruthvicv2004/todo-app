@@ -1,0 +1,9 @@
+﻿body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f8f9fa;
+  color: #222;
+  margin: 0;
+  padding: 20px;
+}
+button { cursor: pointer; }
+
