@@ -1,3 +1,29 @@
+It is just a sample frontend code
+
+TODO/
+ ├── client/          ← Frontend (React)
+ └── (later we’ll add)
+      └── server/     ← Backend (Node + Express)
+
+client/
+├─ index.html
+├─ package.json
+├─ vite.config.js
+└─ src/
+   ├─ main.jsx
+   ├─ App.jsx
+   ├─ api.js
+   ├─ styles.css
+   └─ components/
+      ├─ TodoForm.jsx
+      └─ TodoList.jsx
+cd ..
+npm create vite@latest client -- --template react
+cd client
+npm install
+npm run dev
+      
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
